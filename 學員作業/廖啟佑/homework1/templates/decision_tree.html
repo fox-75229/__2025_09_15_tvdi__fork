@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/decision_tree.css') }}">
+{% endblock %}
+
+
+{% block title %}決策樹分類器 - Python機器學習課程{% endblock %}
+
+{% block content %}
+<div class="decision-tree-content">
+
+    <div class="intro-block">
+        <h1>{{ info.algorithm }}</h1>
+        <p>
+            決策樹 (Decision Tree) 是一種極度直觀的監督式學習模型，它模仿人類的決策過程，透過樹狀的流程圖來進行分類或預測。整個模型就像一個大型的「是/否」問答遊戲，最終引導你到一個明確的結論。
+        </p>
+    </div>
+
+    <div class="pros-cons-container">
+        <div class="pros-block">
+            <h4>核心優點</h4>
+            <ul>
+                {% for pro in info.pros %}
+                <li>{{ pro }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="cons-block">
+            <h4>主要應用場景</h4>
+            <ul>
+                {% for app in info.applications %}
+                <li>{{ app }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
